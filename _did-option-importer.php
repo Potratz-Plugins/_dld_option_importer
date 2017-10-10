@@ -21,6 +21,18 @@
  */
 
 
+
+ require 'plugin_update_check.php';
+ $MyUpdateChecker = new PluginUpdateChecker_2_0 (
+    'https://kernl.us/api/v1/updates/59dd2721b765ab6a6acc71b0/',
+    __FILE__,
+    '_dld_option_importer',
+    1
+ );
+ // $MyUpdateChecker->purchaseCode = "somePurchaseCode";  <---- optional!
+ // $MyUpdateChecker->remoteGetTimeout = 5; <--- optional
+
+
 include_once plugin_dir_path( __FILE__ ).'classes/Database.class.php';
 include_once plugin_dir_path( __FILE__ ).'include/dld-option-import.php';
 
