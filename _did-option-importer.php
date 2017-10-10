@@ -32,7 +32,7 @@ function dld_option_importer_admin_menu() {
         'Vehicle Option Importer Page',					// string $page_title
         'Vehicle Option Importer',					// string $menu_title
         'read',							// string $capability
-        'dld_manage_vehicle_options_import',		// string $menu_slug
+        '_dld_option_importer',		// string $menu_slug
         'dld_option_importer_init',		// callback $function
         'dashicons-admin-page',			// string $icon_url
         '92'							// int $position
@@ -42,7 +42,7 @@ function dld_option_importer_admin_menu() {
             'Vehicle Option Importer Page2',					// string $page_title
             null ,					// string $menu_title
             'read',							// string $capability
-            'dld_manage_vehicle_options_import2',		// string $menu_slug
+            '_dld_option_importer2',		// string $menu_slug
             'process_vehicle_options_from_csv_upload_and_update'		// callback $function ************** PROD --- REMOVE '_test'
             );
 } add_action( 'admin_menu', 'dld_option_importer_admin_menu' );
@@ -52,7 +52,7 @@ function dld_option_importer_admin_menu() {
 // GET STYLES AND SCRIPT
 function dld_option_importer_admin_enqueue_scripts($s_PageTitle) {
 
-    if (  preg_match( '/dld_manage_vehicle_options_import/i', $s_PageTitle ) ) {
+    if (  preg_match( '/_dld_option_importer/i', $s_PageTitle ) ) {
         wp_register_style( 'prefix-style', plugins_url('/styles/styles.css', __FILE__) );
         wp_enqueue_style( 'prefix-style', plugins_url('/styles/styles.css', __FILE__) );
     
@@ -77,7 +77,7 @@ function dld_option_importer_init(){
     <hr>
     </br>
 
-    <form action="admin.php?page=dld_manage_vehicle_options_import2" method="post" enctype="multipart/form-data">
+    <form action="admin.php?page=_dld_option_importer2" method="post" enctype="multipart/form-data">
         <table>
             <tr><td colspan="2" style="font-size:1.4em;">
                 <strong>Please select CSV file to upload:</br></br>
@@ -101,7 +101,7 @@ function dld_option_importer_init(){
     
 </br>
 
-<form action="admin.php?page=dld_manage_vehicle_options_import" method="post" enctype="multipart/form-data">
+<form action="admin.php?page=_dld_option_importer" method="post" enctype="multipart/form-data">
     <table>
         <tr><td colspan="2"  style="font-size:1.4em;">
             <strong>Add new blacklisted option name:</strong></br></br>
@@ -149,7 +149,7 @@ function dld_option_importer_init(){
     $count = 0;
     foreach($a_blacklistGoodArray as $s_item){
         echo "
-        <form action='admin.php?page=dld_manage_vehicle_options_import' method='post' enctype='multipart/form-data'>
+        <form action='admin.php?page=_dld_option_importer' method='post' enctype='multipart/form-data'>
             <tr><td>
                 <input id='blacklist$s_item' name ='OptionCodeToRemove' value='$s_item' readonly='readonly' style='width:400px;'></input>
             </td>
@@ -200,7 +200,7 @@ function dld_option_importer_init(){
             $a_blacklistGoodArray[] = $s_newBlackListItem;
             $s_item = htmlspecialchars($_POST["txtOptionCodeToAdd"]);
             echo "
-                <form action='admin.php?page=dld_manage_vehicle_options_import' method='post' enctype='multipart/form-data'>
+                <form action='admin.php?page=_dld_option_importer' method='post' enctype='multipart/form-data'>
                 <tr><td>
                 <input id='blacklist$s_item' name ='OptionCodeToRemove' value='$s_item' readonly='readonly' style='width:400px;'></input>
                 </td>
@@ -217,7 +217,7 @@ function dld_option_importer_init(){
         // echo '<strong><big>'.htmlspecialchars($_POST["txtOptionCodeToAdd"]) .'</big></strong> </br> The above has been added to blacklisted options.';
         $s_item = htmlspecialchars($_POST["txtOptionCodeToAdd"]);
         echo "
-        <form action='admin.php?page=dld_manage_vehicle_options_import' method='post' enctype='multipart/form-data'>
+        <form action='admin.php?page=_dld_option_importer' method='post' enctype='multipart/form-data'>
             <tr><td>
             <input id='blacklist$s_item' name ='OptionCodeToRemove' value='$s_item' readonly='readonly' style='width:400px;'></input>
             </td>

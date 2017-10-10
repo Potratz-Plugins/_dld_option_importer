@@ -322,7 +322,7 @@ function process_and_update_vehicle_options(){
 
     // ********* DISPLAY RESULTS **************
     echo "<h2><strong>Vehicle Option Codes Have Been Updated</strong></h2>";
-    echo '<a href="/wp-admin/admin.php?page=dld_manage_vehicle_options_import"><input type ="button" value = "BACK TO MAIN PAGE" class="myButton" id="btnBack" style="width:400px;"></input></a>';
+    echo '<a href="/wp-admin/admin.php?page=_dld_option_importer"><input type ="button" value = "BACK TO MAIN PAGE" class="myButton" id="btnBack" style="width:400px;"></input></a>';
 }
 
 
