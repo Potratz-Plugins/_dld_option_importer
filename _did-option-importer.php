@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DLD Option Importer
  * Description: Dealer uploads CSV of option codes per vehicle by VIN through admin of site. Upon successful upload, script is run to pull data for each option from chrome and update database dld_vehicle_options
- * Version: 1.0
+ * Version: 1.0.0
  * Author: Tom Molinaro, Gaetano Dragone
  *
  * NOTE UPON DEPLOYMENT - table will have to be created in DB
